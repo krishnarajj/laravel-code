@@ -11,32 +11,32 @@ jobs:
 
    runs-on: ubuntu-latest
 
-        steps:
+   steps:
 
-          - uses: action/checkout@v2
+    - uses: action/checkout@v2
 
-          - name: Create ZIP deployment package
+    - name: Create ZIP deployment package
 
-            run: zip -r deploy.zip ./
+      run: zip -r deploy.zip ./
 
-          - name: Deploy to Elastic Beanstalk
+    - name: Deploy to Elastic Beanstalk
 
-            uses: einaregilsson/beanstalk-deploy@v18
+      uses: einaregilsson/beanstalk-deploy@v18
 
-            with:
+      with:
 
-              aws_access_key: ${{ secrets.LARAVEL_ACCESS_KEY }}
+        aws_access_key: ${{ secrets.LARAVEL_ACCESS_KEY }}
 
-              aws_secret_key: ${{ secrets.LARAVEL_SECRET_KEY }}
+        aws_secret_key: ${{ secrets.LARAVEL_SECRET_KEY }}
 
-              application_name: laravelapp
+        application_name: laravelapp
 
-              environment_name: Laravelapp-env
+        environment_name: Laravelapp-env
 
-              existing bucket_name: ${{ secrets.LARAVEL_BUCKET }}
+        existing bucket_name: ${{ secrets.LARAVEL_BUCKET }}
 
-              region: us-east-1
+        region: us-east-1
 
-              version label: ${{ github.sha}}
+        version label: ${{ github.sha}}
 
-              deployment package: deploy.zip
+        deployment package: deploy.zip
