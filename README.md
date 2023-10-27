@@ -27,7 +27,14 @@ Access the API endpoints provided by the StudentController for student managemen
 
 API Endpoints
 GET /api/student: List all students.
+
+
 POST /api/student: Create a new student.
+
+
 GET /api/student/{id}: Get a student by ID.
+
+
 PUT /api/student/{id}: Update a student.
+
 DELETE /api/student/{id}: Delete a student.   
