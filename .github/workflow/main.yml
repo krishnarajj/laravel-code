@@ -1,3 +1,4 @@
+name: laravel-deployment
 on:
 
   push:
