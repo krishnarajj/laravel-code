@@ -1,7 +1,8 @@
 name: laravel-deployment
 on:
   push:
-    branches: [main]
+    branches:
+      - main
 
 jobs:
   deploy:
@@ -9,6 +10,9 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+
+      - name: Create ZIP deployment package
+        run: zip -r deploy.zip ./
 
       - name: Deploy to Elastic Beanstalk
         uses: einaregilsson/beanstalk-deploy@v18
@@ -19,3 +23,4 @@ jobs:
           environment_name: Laravelapp-env
           region: us-east-1
           version_label: ${{ github.sha }}
+          deployment_package: deploy.zip
