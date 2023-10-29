@@ -20,8 +20,8 @@ jobs:
         with:
           aws_access_key: ${{ secrets.LARAVEL_ACCESS_KEY }}
           aws_secret_key: ${{ secrets.LARAVEL_SECRET_KEY }}
-          application_name: laravelapp
-          environment_name: Laravelapp-env
+          application_name: laravel
+          environment_name: Laravel-env
           region: us-east-1
           version_label: ${{ github.sha }}
           deployment_package: deploy.zip
